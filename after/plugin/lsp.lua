@@ -8,7 +8,6 @@ require('mason-lspconfig').setup({
         'tsserver',
         'eslint',
         'lua_ls',
-        'rust_analyzer',
     },
     handlers = {
         lsp.default_setup,
