@@ -53,3 +53,10 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+vim.keymap.set("n", "<leader>vim", function ()
+    local myvimrc = vim.fn.expand("$MYVIMRC")
+    local dirname = vim.fn.fnamemodify(myvimrc, ":h")
+
+    vim.cmd("Ex " .. dirname)
+end)
