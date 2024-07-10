@@ -8,6 +8,8 @@ require('mason-lspconfig').setup({
         'tsserver',
         'eslint',
         'lua_ls',
+        'gopls',
+        'golangci_lint_ls',
     },
     handlers = {
         lsp.default_setup,
@@ -29,7 +31,8 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<Enter>'] = cmp.mapping.confirm({ select = true }),
+        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
         ['<C-space>'] = cmp.mapping.complete(cmp_select),
     })
 })
