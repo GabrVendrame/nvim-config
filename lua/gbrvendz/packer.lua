@@ -63,4 +63,8 @@ return require('packer').startup(function(use)
         require("toggleterm").setup()
     end
     }
+
+    use 'ray-x/go.nvim'
+    use 'ray-x/guihua.lua' -- recommended if need floating window support
+    use 'neovim/nvim-lspconfig'
 end)
