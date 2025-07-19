@@ -123,7 +123,7 @@ return {
                                 signs = vim.g.have_nerd_font and {
                                         text = {
                                                 [vim.diagnostic.severity.ERROR] = "❌",
-                                                [vim.diagnostic.severity.WARN] = "🚨",
+                                                [vim.diagnostic.severity.WARN] = "⚠️",
                                                 [vim.diagnostic.severity.INFO] = "ℹ️",
                                                 [vim.diagnostic.severity.HINT] = "💡",
                                         },
@@ -146,26 +146,73 @@ return {
 
                         local capabilities = require("blink-cmp").get_lsp_capabilities()
                         local servers = {
-                                ts_ls = {},
-                                eslint = {},
-                                lua_ls = {
+                                ts_ls = {
+                                        init_options = {
+                                                hostInfo = "NVIM-0.11.3",
+                                                locale = "pt-BR"
+                                        },
                                         settings = {
-                                                Lua = {
-                                                        completion = {
-                                                                callSnippet = "Replace",
-                                                        },
-                                                        diagnostics = {
-                                                                globals = {
-                                                                        "vim",
-                                                                        "require",
-                                                                },
+                                                preferences = {
+                                                        quotePreference = "double",
+                                                },
+                                                typescript = {
+                                                        format = {
+                                                                indentSize = 4,
+                                                                tabSize = 4,
+                                                                semicolons = "insert",
+                                                                trimTrailingWhiteSpace = true,
+                                                        }
+                                                },
+                                                javascript = {
+                                                        format = {
+                                                                indentSize = 4,
+                                                                tabSize = 4,
+                                                                semicolons = "insert",
+                                                                trimTrailingWhiteSpace = true,
                                                         },
                                                 },
                                         },
                                 },
-                                gopls = {},
-                                golangci_lint_ls = {},
-                                jsonls = {},
+                                eslint = {
+                                        settings = {
+                                                run = "onSave",
+                                        },
+                                },
+                                lua_ls = {
+                                        settings = {
+                                                Lua = {
+                                                        runtime = {
+                                                                version = "LuaJIT",
+                                                        },
+                                                        completion = {
+                                                                callSnippet = "Replace",
+                                                        },
+                                                        diagnostics = {
+                                                                globals = { 'vim', 'require' },
+                                                        },
+                                                },
+                                        },
+                                },
+                                gopls = {
+                                        settings = {
+                                                gopls = {
+                                                        analyses = {
+                                                                unreachable = true,
+                                                                unusedparams = true,
+                                                                S1002 = true, -- omit comparison with boolean constants. Ex: if x == true {} -> if x {}
+                                                        },
+                                                },
+                                        },
+                                },
+                                jsonls = {
+                                        settings = {
+                                                validate = true,
+                                                allowComments = true
+                                        }
+                                },
+                                dockerls = {},
+                                marksman = {},
+                                pyright = {},
                         }
 
                         local ensure_installed = vim.tbl_keys(servers or {})
