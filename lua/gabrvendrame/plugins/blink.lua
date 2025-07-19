@@ -4,7 +4,7 @@ return {
                 event = "VimEnter",
                 version = "1.*",
                 dependencies = {
-                        { require('gabrvendrame.plugins.mini-snippets') },
+                        require("gabrvendrame.plugins.mini"),
                         { "rafamadriz/friendly-snippets" },
                 },
                 opts = {
@@ -12,7 +12,6 @@ return {
                                 preset = "default",
                                 ["<Up>"] = { "select_prev", "fallback" },
                                 ["<Down>"] = { "select_next", "fallback" },
-                                --["<Enter>"] = { "accept", "fallback" },
                                 ["<Tab>"] = { "accept", "fallback" },
                         },
 
