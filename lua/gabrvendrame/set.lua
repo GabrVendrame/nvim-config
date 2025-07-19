@@ -3,6 +3,8 @@ vim.o.relativenumber = true
 
 vim.o.mouse = "a"
 
+vim.o.showmode = true
+
 vim.schedule(function()
         vim.o.clipboard = "unnamedplus"
 end)
