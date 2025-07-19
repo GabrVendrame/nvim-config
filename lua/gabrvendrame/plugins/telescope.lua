@@ -29,24 +29,35 @@ return {
                                                 },
                                         },
                                 },
+                                extensions = {
+                                        ['ui-select'] = {
+                                                require("telescope.themes").get_dropdown({
+                                                        winblend = 10,
+                                                        previwer = true,
+                                                }),
+                                        },
+                                }
                         })
-
-                        -- TODO: add description for each remap to better use of which-key plugin
-                        local builtin = require("telescope.builtin")
-                        vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
-                        vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-                        vim.keymap.set("n", "<leader>ps", function()
-                                builtin.grep_string({ search = vim.fn.input("Grep > ") })
-                        end)
-
-                        extensions = {
-                                ['ui-select'] = {
-                                        require("telescope.themes").get_dropdown(),
-                                },
-                        }
 
                         pcall(require("telescope").load_extension("fzf"))
                         pcall(require("telescope").load_extension("ui-select"))
+
+                        local function remap(mode, lhs, rhs, desc)
+                                local opts = {
+                                        desc = desc or nil
+                                }
+                                vim.keymap.set(mode, lhs, rhs, opts)
+                        end
+
+                        local builtin = require("telescope.builtin")
+                        remap("n", "<leader>pf", builtin.find_files, "Search files")
+                        remap("n", "<C-p>", builtin.git_files, "Find git files")
+                        remap("n", "<leader>psw", builtin.grep_string, "Search current word")
+                        remap("n", "<leader>ps", builtin.live_grep, "Search by grep")
+
+                        remap("n", "<leader>pfvim", function()
+                                builtin.find_files { cwd = vim.fn.stdpath "config" }
+                        end, "Search in neovim configuration")
                 end,
         }
 }
