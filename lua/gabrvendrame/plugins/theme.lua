@@ -13,18 +13,9 @@ return {
                                                 italic = true,
                                         },
                                 },
-                                extensions = {
-                                        telescope = true
-                                },
                         })
 
-                        require("cyberdream").load()
-
-                        local colorize = function()
-                                vim.cmd.colorscheme("cyberdream")
-                        end
-
-                        colorize()
+                        vim.cmd.colorscheme("cyberdream")
                 end,
         }
 }
