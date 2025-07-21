@@ -86,4 +86,14 @@ function Tables.get_linters()
         }
 end
 
+function Tables.get_sources()
+        local none_ls = require("null-ls")
+
+        return {
+                none_ls.builtins.diagnostics.mypy,
+                none_ls.builtins.diagnostics.sqruff,
+                none_ls.builtins.formatting.black,
+        }
+end
+
 return Tables
