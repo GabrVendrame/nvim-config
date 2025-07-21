@@ -52,7 +52,7 @@ return {
                         local builtin = require("telescope.builtin")
                         remap("n", "<leader>pf", builtin.find_files, "Search files")
                         remap("n", "<C-p>", builtin.git_files, "Find git files")
-                        remap("n", "<leader>psw", builtin.grep_string, "Search current word")
+                        remap("n", "<leader>psc", builtin.grep_string, "Search current word")
                         remap("n", "<leader>ps", builtin.live_grep, "Search by grep")
 
                         remap("n", "<leader>pfvim", function()
