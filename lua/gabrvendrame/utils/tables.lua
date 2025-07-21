@@ -1,6 +1,6 @@
 local Tables = {}
 
-function Tables.get_servers_table()
+function Tables.get_servers()
         return {
                 ts_ls = {
                         init_options = {
@@ -72,9 +72,17 @@ function Tables.get_servers_table()
         }
 end
 
-function Tables.get_formatters_table()
+function Tables.get_formatters()
         return {
                 "stylua",
+                "black",
+                "sqruff"
+        }
+end
+
+function Tables.get_linters()
+        return {
+                "mypy",
         }
 end
 
