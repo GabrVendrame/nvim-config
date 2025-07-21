@@ -5,7 +5,7 @@ return {
                 version = "1.*",
                 dependencies = {
                         require("gabrvendrame.plugins.mini"),
-                        { "rafamadriz/friendly-snippets" },
+                        require("gabrvendrame.plugins.lazydev"),
                 },
                 opts = {
                         keymap = {
