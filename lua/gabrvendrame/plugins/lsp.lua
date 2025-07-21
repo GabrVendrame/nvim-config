@@ -19,9 +19,9 @@ return {
 
                                         lsp_maps.set_keymaps(buf)
 
-                                        lsp_utils.setup_highlight(client, event.buf)
+                                        lsp_utils.setup_highlight(client, buf)
 
-                                        lsp_utils.setup_inlay_hints(client, event.buf)
+                                        lsp_utils.setup_inlay_hints(client, buf)
                                 end,
                         })
 
