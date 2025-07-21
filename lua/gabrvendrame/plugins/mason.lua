@@ -36,6 +36,7 @@ return {
                 "WhoIsSethDaniel/mason-tool-installer.nvim",
                 opts = function()
                         local utils = require("gabrvendrame.utils.tables")
+                        local mason_tool_installer = require("mason-tool-installer")
 
                         local servers = utils.get_servers_table()
                         local formatters = utils.get_formatters_table()
@@ -44,9 +45,7 @@ return {
 
                         vim.list_extend(ensure_installed, formatters)
 
-                        return {
-                                ensure_installed = ensure_installed
-                        }
+                        mason_tool_installer.setup({ ensure_installed = ensure_installed })
                 end
         },
 }
