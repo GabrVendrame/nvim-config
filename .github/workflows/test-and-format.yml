@@ -22,6 +22,7 @@ jobs:
         run: nvim --headless "+quit"
 
   format:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
