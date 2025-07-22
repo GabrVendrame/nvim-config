@@ -1,0 +1,44 @@
+name: Neovim Config CI
+
+on:
+  push:
+    branches: ["main", "lazy", "packer"]
+  pull_request:
+    branches: ["main", "lazy", "packer"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Neovim
+        run: sudo apt-get update && sudo apt-get install -y neovim
+
+      - name: Create config dir
+        run: XDG_CONFIG_HOME=$GITHUB_WORKSPACE
+
+      - name: Check Neovim config
+        run: nvim --headless "+quit"
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          profile: minimal
+          components: rustfmt
+
+      - name: Install stylua
+        run: cargo install stylua
+
+      - name: Format Lua files
+        run: stylua .
+
+      - name: Check formatting
+        run: stylua --check .
