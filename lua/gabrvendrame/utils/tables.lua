@@ -76,7 +76,8 @@ function Tables.get_formatters()
         return {
                 "stylua",
                 "black",
-                "sqruff"
+                "sqruff",
+                "prettier",
         }
 end
 
@@ -93,6 +94,7 @@ function Tables.get_sources()
                 none_ls.builtins.diagnostics.mypy,
                 none_ls.builtins.diagnostics.sqruff,
                 none_ls.builtins.formatting.black,
+                none_ls.builtins.formatting.prettier,
         }
 end
 
