@@ -4,7 +4,7 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 local function remap(mode, lhs, rhs, desc, silent)
-        desc = desc or ""
+        desc = desc or nil
         silent = silent or false
         vim.keymap.set(mode, lhs, rhs, { desc = desc, silent = silent })
 end
