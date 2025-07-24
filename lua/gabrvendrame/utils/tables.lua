@@ -29,11 +29,6 @@ function Tables.get_servers()
                                 },
                         },
                 },
-                eslint = {
-                        settings = {
-                                run = "onSave",
-                        },
-                },
                 lua_ls = {
                         settings = {
                                 Lua = {
@@ -69,6 +64,7 @@ function Tables.get_servers()
                 dockerls = {},
                 marksman = {},
                 pyright = {},
+                prismals = {},
         }
 end
 
