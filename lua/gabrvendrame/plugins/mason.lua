@@ -14,7 +14,7 @@ return {
                         ensure_installed = {},
                         handlers = {
                                 function(server_name)
-                                        local servers = require("gabrvendrame.utils.tables").get_servers_table()
+                                        local servers = require("gabrvendrame.utils.tables").get_servers()
                                         local capabilities = require("blink-cmp").get_lsp_capabilities()
                                         local lspconfig = require("lspconfig")
 
