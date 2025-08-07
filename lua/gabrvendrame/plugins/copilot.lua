@@ -15,7 +15,7 @@ return {
                         vim.keymap.set("n", "<leader>con", "<cmd>Copilot enable<cr>", { desc = "Turn on copilot" })
                         vim.keymap.set("n", "<leader>cof", "<cmd>Copilot disable<cr>", { desc = "Turn off copilot" })
                         vim.keymap.set("i", "<C-a>", "copilot#Accept('')",
-                                { desc = "Accept Copilot suggestion", expr = true, silent = true, replace_keycodes = false })
+                                { desc = "Accept Copilot suggestion", expr = true, silent = true })
                         vim.g.copilot_no_tab_map = true
                 end
         }

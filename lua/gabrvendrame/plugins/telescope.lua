@@ -42,22 +42,15 @@ return {
                         pcall(require("telescope").load_extension("fzf"))
                         pcall(require("telescope").load_extension("ui-select"))
 
-                        local function remap(mode, lhs, rhs, desc)
-                                local opts = {
-                                        desc = desc or nil
-                                }
-                                vim.keymap.set(mode, lhs, rhs, opts)
-                        end
-
                         local builtin = require("telescope.builtin")
-                        remap("n", "<leader>pf", builtin.find_files, "Search files")
-                        remap("n", "<C-p>", builtin.git_files, "Find git files")
-                        remap("n", "<leader>psc", builtin.grep_string, "Search current word")
-                        remap("n", "<leader>ps", builtin.live_grep, "Search by grep")
+                        vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Search files" })
+                        vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Find git files" })
+                        vim.keymap.set("n", "<leader>psc", builtin.grep_string, { desc = "Search current word" })
+                        vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Search by grep" })
 
-                        remap("n", "<leader>pfvim", function()
+                        vim.keymap.set("n", "<leader>pfvim", function()
                                 builtin.find_files { cwd = vim.fn.stdpath "config" }
-                        end, "Search in neovim configuration")
+                        end, { desc = "Search in neovim configuration" })
                 end,
         }
 }
