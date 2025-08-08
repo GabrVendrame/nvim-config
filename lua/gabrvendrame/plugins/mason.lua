@@ -3,7 +3,6 @@ return {
                 "mason-org/mason.nvim",
                 opts = {},
         },
-
         {
                 "mason-org/mason-lspconfig.nvim",
                 dependencies = {
@@ -31,7 +30,6 @@ return {
                         },
                 }
         },
-
         {
                 "WhoIsSethDaniel/mason-tool-installer.nvim",
                 opts = function()
@@ -49,5 +47,5 @@ return {
 
                         mason_tool_installer.setup({ ensure_installed = ensure_installed })
                 end
-        },
+        }
 }

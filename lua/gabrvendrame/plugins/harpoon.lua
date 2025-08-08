@@ -1,9 +1,3 @@
-local function remap(mode, lhs, rhs, desc)
-        local opts = {
-                desc = desc or nil
-        }
-        vim.keymap.set(mode, lhs, rhs, opts)
-end
 return {
         {
                 "ThePrimeagen/harpoon",

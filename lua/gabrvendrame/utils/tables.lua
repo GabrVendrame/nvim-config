@@ -1,6 +1,6 @@
-local Tables = {}
+local T = {}
 
-function Tables.get_servers()
+function T.get_servers()
         return {
                 ts_ls = {
                         init_options = {
@@ -55,20 +55,13 @@ function Tables.get_servers()
                                 },
                         },
                 },
-                jsonls = {
-                        settings = {
-                                validate = true,
-                                allowComments = true
-                        }
-                },
                 dockerls = {},
-                marksman = {},
-                pyright = {},
+                pylsp = {},
                 prismals = {},
         }
 end
 
-function Tables.get_formatters()
+function T.get_formatters()
         return {
                 "stylua",
                 "black",
@@ -77,13 +70,13 @@ function Tables.get_formatters()
         }
 end
 
-function Tables.get_linters()
+function T.get_linters()
         return {
                 "mypy",
         }
 end
 
-function Tables.get_sources()
+function T.get_sources()
         local none_ls = require("null-ls")
 
         return {
@@ -94,4 +87,4 @@ function Tables.get_sources()
         }
 end
 
-return Tables
+return T

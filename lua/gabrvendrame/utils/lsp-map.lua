@@ -1,6 +1,6 @@
-local LspMap = {}
+local L = {}
 
-function LspMap.set_keymaps(bufnr)
+function L.set_keymaps(bufnr)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", buffer = bufnr })
         vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation", buffer = bufnr })
         vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, { desc = "Workspace symbol", buffer = bufnr })
@@ -15,4 +15,4 @@ function LspMap.set_keymaps(bufnr)
         vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = bufnr })
 end
 
-return LspMap
+return L

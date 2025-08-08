@@ -12,7 +12,6 @@ return {
                         })
                 end,
         },
-
         {
                 "echasnovski/mini.move",
                 version = false,
@@ -20,7 +19,6 @@ return {
                         require("mini.move").setup()
                 end
         },
-
         {
                 "echasnovski/mini.pairs",
                 version = false,
@@ -28,7 +26,6 @@ return {
                         require("mini.pairs").setup()
                 end
         },
-
         {
                 "echasnovski/mini.surround",
                 version = false,
@@ -36,7 +33,6 @@ return {
                         require("mini.surround").setup()
                 end
         },
-
         {
                 "echasnovski/mini.indentscope",
                 version = false,
@@ -49,5 +45,5 @@ return {
                                 },
                         })
                 end
-        },
+        }
 }

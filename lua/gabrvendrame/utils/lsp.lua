@@ -1,4 +1,4 @@
-local Lsp = {}
+local L = {}
 
 local function client_supports_method(client, method, bufnr)
         if vim.fn.has("nvim-0.11") == 1 then
@@ -8,7 +8,7 @@ local function client_supports_method(client, method, bufnr)
         end
 end
 
-function Lsp.setup_highlight(client, bufnr)
+function L.setup_highlight(client, bufnr)
         local method = vim.lsp.protocol.Methods.textDocument_documentHighlight
 
         local is_supported = client_supports_method(client, method, bufnr)
@@ -39,7 +39,7 @@ function Lsp.setup_highlight(client, bufnr)
         })
 end
 
-function Lsp.setup_inlay_hints(client, bufnr)
+function L.setup_inlay_hints(client, bufnr)
         local method = vim.lsp.protocol.Methods.textDocument_inlayHint
 
         local is_supported = client and client_supports_method(client, method, bufnr)
@@ -55,7 +55,7 @@ function Lsp.setup_inlay_hints(client, bufnr)
         )
 end
 
-function Lsp.setup_diagnostics()
+function L.setup_diagnostics()
         vim.diagnostic.config({
                 severity_sort = true,
                 float = {
@@ -83,4 +83,4 @@ function Lsp.setup_diagnostics()
         })
 end
 
-return Lsp
+return L

@@ -30,6 +30,7 @@ local default_keys = {
                 F12 = '<F12>',
         }
 }
+
 return {
         {
                 "folke/which-key.nvim",
@@ -39,5 +40,5 @@ return {
                         mappings = vim.g.have_nerd_font,
                         keys = vim.g.have_nerd_font and {} or default_keys,
                 },
-        },
+        }
 }
