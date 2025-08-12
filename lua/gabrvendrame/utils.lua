@@ -1,4 +1,4 @@
-local L = {}
+local U = {}
 
 local function client_supports_method(client, method, bufnr)
         if vim.fn.has("nvim-0.11") == 1 then
@@ -8,38 +8,22 @@ local function client_supports_method(client, method, bufnr)
         end
 end
 
-function L.setup_highlight(client, bufnr)
-        local method = vim.lsp.protocol.Methods.textDocument_documentHighlight
-
-        local is_supported = client_supports_method(client, method, bufnr)
-        if not is_supported then
-                return
-        end
-
-        local group = vim.api.nvim_create_augroup("lsp-hi", { clear = false })
-
-        vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-                group = group,
-                buffer = bufnr,
-                callback = vim.lsp.buf.document_highlight
-        })
-
-        vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-                group = group,
-                buffer = bufnr,
-                callback = vim.lsp.buf.clear_references
-        })
-
-        vim.api.nvim_create_autocmd("LspDetach", {
-                group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
-                callback = function(event)
-                        vim.api.nvim_clear_autocmds({ group = "lsp-hi", buffer = event.buf })
-                        vim.lsp.buf.clear_references()
-                end
-        })
+function U.set_keymaps(bufnr)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", buffer = bufnr })
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation", buffer = bufnr })
+        vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, { desc = "Workspace symbol", buffer = bufnr })
+        vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, { desc = "Show diagnostics", buffer = bufnr })
+        vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = 1, float = true }) end,
+                { desc = "Next diagnostic", buffer = bufnr })
+        vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = -1, float = true }) end,
+                { desc = "Previous diagnostic", buffer = bufnr })
+        vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, { desc = "Code action", buffer = bufnr })
+        vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { desc = "Find references", buffer = bufnr })
+        vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, { desc = "Rename symbol", buffer = bufnr })
+        vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = bufnr })
 end
 
-function L.setup_inlay_hints(client, bufnr)
+function U.setup_inlay_hints(client, bufnr)
         local method = vim.lsp.protocol.Methods.textDocument_inlayHint
 
         local is_supported = client and client_supports_method(client, method, bufnr)
@@ -55,7 +39,7 @@ function L.setup_inlay_hints(client, bufnr)
         )
 end
 
-function L.setup_diagnostics()
+function U.setup_diagnostics()
         vim.diagnostic.config({
                 severity_sort = true,
                 float = {
@@ -83,4 +67,19 @@ function L.setup_diagnostics()
         })
 end
 
-return L
+function U.get_ensure_installed()
+        local utils = require("gabrvendrame.tables")
+
+        local servers = utils.get_servers()
+        local formatters = utils.get_formatters()
+        local linters = utils.get_linters()
+
+        local ensure_installed = vim.tbl_keys(servers)
+
+        vim.list_extend(ensure_installed, formatters)
+        vim.list_extend(ensure_installed, linters)
+
+        return ensure_installed
+end
+
+return U

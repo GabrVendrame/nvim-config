@@ -76,15 +76,8 @@ function T.get_linters()
         }
 end
 
-function T.get_sources()
-        local none_ls = require("null-ls")
-
-        return {
-                none_ls.builtins.diagnostics.mypy,
-                none_ls.builtins.diagnostics.sqruff,
-                none_ls.builtins.formatting.black,
-                none_ls.builtins.formatting.prettier,
-        }
+function T.get_debuggers()
+        return {}
 end
 
 return T

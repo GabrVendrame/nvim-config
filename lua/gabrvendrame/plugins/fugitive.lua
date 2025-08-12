@@ -2,10 +2,7 @@ return {
         {
                 "tpope/vim-fugitive",
                 config = function()
-                        local opts = {
-                                desc = "Opens a git interface"
-                        }
-                        vim.keymap.set("n", "<leader>gs", vim.cmd.Git, opts)
+                        vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Open git interface" })
                 end
         }
 }
