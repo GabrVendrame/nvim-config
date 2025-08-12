@@ -2,13 +2,16 @@ return {
         {
                 "echasnovski/mini.snippets",
                 version = false,
-                opts = {
-                        snippets = {
-                                function()
-                                        return require("mini.snippets").gen_loader().from_lang()
-                                end
-                        }
-                }
+                opts = function()
+                        local snippets = require("mini.snippets")
+                        local gen_loader = snippets.gen_loader
+
+                        snippets.setup({
+                                snippets = {
+                                        gen_loader.from_lang()
+                                }
+                        })
+                end
         },
         {
                 "echasnovski/mini.move",
