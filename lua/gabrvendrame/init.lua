@@ -2,13 +2,14 @@ require("gabrvendrame.remap")
 require("gabrvendrame.set")
 require("gabrvendrame.lazy")
 
+vim.cmd.colorscheme("cyberdream")
+
 local utils = require("gabrvendrame.utils")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local clear_autocmds = vim.api.nvim_clear_autocmds
 
-local GabrVendrameGroup = augroup("GabrVendrame", {})
 local yank_group = augroup("HighlightYank", { clear = true })
 local auto_format_group = augroup("AutoFormatOnSave", {})
 local lsp_hl_group = augroup("LspHighlight", {})

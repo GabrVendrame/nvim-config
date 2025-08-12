@@ -2,41 +2,34 @@ return {
         {
                 "echasnovski/mini.snippets",
                 version = false,
-                config = function()
-                        local mini_snippets = require("mini.snippets")
-                        local gen_loader = mini_snippets.gen_loader
-                        mini_snippets.setup({
-                                snippets = {
-                                        gen_loader.from_lang()
-                                },
-                        })
-                end,
+                opts = {
+                        snippets = {
+                                function()
+                                        return require("mini.snippets").gen_loader().from_lang()
+                                end
+                        }
+                }
         },
         {
                 "echasnovski/mini.move",
                 version = false,
-                config = function()
-                        require("mini.move").setup()
-                end
+                opts = {}
         },
         {
                 "echasnovski/mini.surround",
                 version = false,
-                config = function()
-                        require("mini.surround").setup()
-                end
+                opts = {}
         },
         {
                 "echasnovski/mini.indentscope",
                 version = false,
-                config = function()
-                        local indentscope = require("mini.indentscope")
-                        indentscope.setup({
-                                draw = {
-                                        delay = 0,
-                                        animation = indentscope.gen_animation.none()
-                                },
-                        })
-                end
+                opts = {
+                        draw = {
+                                delay = 0,
+                                animation = function()
+                                        return 0
+                                end
+                        }
+                }
         }
 }
