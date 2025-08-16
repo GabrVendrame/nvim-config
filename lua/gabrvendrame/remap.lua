@@ -25,7 +25,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up (centered)" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
 
-vim.keymap.set("x", "<leader>p", [["_dp]], { desc = "Paste over (keep register)" })
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste over (keep register)" })
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank (copy) to system clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank (copy) line to system clipboard" })
