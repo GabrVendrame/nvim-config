@@ -3,7 +3,7 @@ vim.o.relativenumber = true
 
 vim.o.mouse = "a"
 
-vim.o.showmode = true
+vim.o.showmode = false
 
 vim.schedule(function()
         vim.o.clipboard = "unnamedplus"
@@ -49,3 +49,5 @@ vim.o.incsearch = true
 vim.o.termguicolors = true
 
 vim.opt.isfname:append("@-@")
+
+vim.o.laststatus = 3

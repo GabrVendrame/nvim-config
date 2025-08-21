@@ -19,7 +19,7 @@ local lsp_detach_group = augroup("LspDetach", { clear = true })
 local function setup_lsp_highlight(client, bufnr)
         local method = vim.lsp.protocol.Methods.textDocument_documentHighlight
 
-        local is_supported = client.supports_method(method)
+        local is_supported = client:supports_method(method)
         if not is_supported then
                 return
         end
@@ -69,7 +69,7 @@ autocmd("LspDetach", {
 
 function SetAutoFormatOnSave(client, bufnr)
         local method = vim.lsp.protocol.Methods.textDocument_formatting
-        local is_supported = client.supports_method(method)
+        local is_supported = client:supports_method(method)
 
         if is_supported then
                 clear_autocmds({

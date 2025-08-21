@@ -11,14 +11,17 @@ return {
                 local mason = require("mason")
                 local mason_lspconfig = require("mason-lspconfig")
                 local mason_tool_installer = require("mason-tool-installer")
+                local ensure_installed = utils.get_ensure_installed()
 
                 mason.setup()
+
+                mason_tool_installer.setup({ ensure_installed = ensure_installed })
 
                 mason_lspconfig.setup({
                         ensure_installed = {},
                         handlers = {
                                 function(server_name)
-                                        local servers = require("gabrvendrame.utils.tables").get_servers()
+                                        local servers = require("gabrvendrame.tables").get_servers()
                                         local capabilities = require("blink-cmp").get_lsp_capabilities()
                                         local lspconfig = require("lspconfig")
 
@@ -30,14 +33,10 @@ return {
                                                 server.capabilities or {}
                                         )
 
-                                        lspconfig[server_name].setup(server)
+                                        lspconfig[server_name].setup(ensure_installed)
                                 end,
                         },
                 })
-
-                local ensure_installed = utils.get_ensure_installed()
-
-                mason_tool_installer.setup({ ensure_installed = ensure_installed })
 
                 utils.setup_diagnostics()
         end,

@@ -3,7 +3,7 @@ return {
         event = "VimEnter",
         version = "1.*",
         dependencies = {
-                require("gabrvendrame.plugins.mini"),
+                require("gabrvendrame.plugins.mini")[1],
                 require("gabrvendrame.plugins.lazydev"),
         },
         opts = {

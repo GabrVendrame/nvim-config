@@ -7,7 +7,6 @@ return {
                 {
                         "nvim-telescope/telescope-fzf-native.nvim",
                         build = "make",
-
                         cond = function()
                                 return vim.fn.executable 'make' == 1
                         end,
@@ -44,10 +43,10 @@ return {
                 local builtin = require("telescope.builtin")
                 vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Search files" })
                 vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Find git files" })
-                vim.keymap.set("n", "<leader>psc", builtin.grep_string, { desc = "Search current word" })
-                vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Search by grep" })
+                vim.keymap.set("n", "<leader>ps", builtin.grep_string, { desc = "Search current word" })
+                vim.keymap.set("n", "<leader>pw", builtin.live_grep, { desc = "Search by grep" })
 
-                vim.keymap.set("n", "<leader>pfvim", function()
+                vim.keymap.set("n", "<leader>fvim", function()
                         builtin.find_files { cwd = vim.fn.stdpath "config" }
                 end, { desc = "Search in neovim configuration" })
         end,

@@ -57,7 +57,6 @@ function T.get_servers()
                 },
                 dockerls = {},
                 pylsp = {},
-                prismals = {},
         }
 end
 
