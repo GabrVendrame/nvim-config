@@ -33,7 +33,7 @@ return {
                                                 server.capabilities or {}
                                         )
 
-                                        lspconfig[server_name].setup(ensure_installed)
+                                        lspconfig[server_name].setup(server)
                                 end,
                         },
                 })
