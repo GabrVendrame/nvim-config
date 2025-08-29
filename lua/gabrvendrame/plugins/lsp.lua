@@ -4,7 +4,7 @@ return {
                 "mason-org/mason.nvim",
                 "mason-org/mason-lspconfig.nvim",
                 "WhoIsSethDaniel/mason-tool-installer.nvim",
-                require("gabrvendrame.plugins.blink"),
+                "saghen/blink.cmp",
         },
         config = function()
                 local utils = require("gabrvendrame.utils")

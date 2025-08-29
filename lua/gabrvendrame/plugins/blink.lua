@@ -3,8 +3,8 @@ return {
         event = "VimEnter",
         version = "1.*",
         dependencies = {
-                require("gabrvendrame.plugins.mini")[1],
-                require("gabrvendrame.plugins.lazydev"),
+                "echasnovski/mini.snippets",
+                "folke/lazydev.nvim",
         },
         opts = {
                 keymap = {
