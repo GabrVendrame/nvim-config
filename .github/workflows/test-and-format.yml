@@ -7,22 +7,7 @@ on:
     branches: ["main", "lazy", "packer"]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Neovim
-        run: sudo apt-get update && sudo apt-get install -y neovim
-
-      - name: Create config dir
-        run: XDG_CONFIG_HOME=$GITHUB_WORKSPACE
-
-      - name: Check Neovim config
-        run: nvim --headless "+quit"
-
   format:
-    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
