@@ -20,7 +20,7 @@ function U.set_keymaps(bufnr)
         vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, { desc = "Code action", buffer = bufnr })
         vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { desc = "Find references", buffer = bufnr })
         vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, { desc = "Rename symbol", buffer = bufnr })
-        vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = bufnr })
+        vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = bufnr })
 end
 
 function U.setup_inlay_hints(client, bufnr)
@@ -31,7 +31,7 @@ function U.setup_inlay_hints(client, bufnr)
                 return
         end
 
-        vim.keymap.set("n", "<leader>th", function()
+        vim.keymap.set("n", "<leader>h", function()
                         local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
                         vim.lsp.inlay_hint.enable(not is_enabled)
                 end,
