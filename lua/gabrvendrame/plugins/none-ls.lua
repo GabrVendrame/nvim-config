@@ -12,9 +12,6 @@ return {
 
                 none_ls.setup({
                         sources = sources,
-                        on_attach = function(client, bufnr)
-                                SetAutoFormatOnSave(client, bufnr)
-                        end
                 })
         end
 }

@@ -11,7 +11,6 @@ local autocmd = vim.api.nvim_create_autocmd
 local clear_autocmds = vim.api.nvim_clear_autocmds
 
 local yank_group = augroup("HighlightYank", { clear = true })
-local auto_format_group = augroup("AutoFormatOnSave", {})
 local lsp_hl_group = augroup("LspHighlight", {})
 local lsp_attach_group = augroup("LspAttach", { clear = true })
 local lsp_detach_group = augroup("LspDetach", { clear = true })
@@ -36,8 +35,6 @@ local function setup_lsp_highlight(client, bufnr)
                 callback = vim.lsp.buf.clear_references
         })
 end
-
-
 
 autocmd("TextYankPost", {
         desc = "Highlight when yanking",
@@ -66,22 +63,3 @@ autocmd("LspDetach", {
                 vim.lsp.buf.clear_references()
         end
 })
-
-function SetAutoFormatOnSave(client, bufnr)
-        local method = vim.lsp.protocol.Methods.textDocument_formatting
-        local is_supported = client:supports_method(method)
-
-        if is_supported then
-                clear_autocmds({
-                        group = auto_format_group,
-                        buffer = bufnr
-                })
-                autocmd("BufWritePre", {
-                        group = auto_format_group,
-                        buffer = bufnr,
-                        callback = function()
-                                vim.lsp.buf.format({ async = false })
-                        end
-                })
-        end
-end
