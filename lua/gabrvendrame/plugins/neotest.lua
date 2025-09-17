@@ -17,7 +17,9 @@ return {
                 })
         end,
         keys = {
-                { "<leader>tr", "<cmd>Neotest run<cr>",    desc = "Run nearest test" },
-                { "<leader>tf", "<cmd>Neotest output<cr>", desc = "Runs current file test" }
+                { "<leader>tr", "<cmd>Neotest run<cr>",      desc = "Run nearest test" },
+                { "<leader>tf", "<cmd>Neotest run file<cr>", desc = "Runs current file test" },
+                { "<leader>to", "<cmd>Neotest output<cr>",   desc = "Opens test output" },
+                { "<leader>ts", "<cmd>Neotest summary<cr>",  desc = "Opens test summary" }
         }
 }
