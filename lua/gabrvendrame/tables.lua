@@ -5,27 +5,11 @@ function T.get_servers()
                 ts_ls = {
                         init_options = {
                                 hostInfo = "NVIM-0.11.3",
-                                locale = "pt-BR"
+                                locale = "pt-BR",
                         },
                         settings = {
                                 preferences = {
                                         quotePreference = "double",
-                                },
-                                typescript = {
-                                        format = {
-                                                indentSize = 4,
-                                                tabSize = 4,
-                                                semicolons = "insert",
-                                                trimTrailingWhiteSpace = true,
-                                        }
-                                },
-                                javascript = {
-                                        format = {
-                                                indentSize = 4,
-                                                tabSize = 4,
-                                                semicolons = "insert",
-                                                trimTrailingWhiteSpace = true,
-                                        },
                                 },
                         },
                 },
@@ -39,7 +23,7 @@ function T.get_servers()
                                                 callSnippet = "Replace",
                                         },
                                         diagnostics = {
-                                                globals = { 'vim', 'require' },
+                                                globals = { "vim", "require" },
                                         },
                                 },
                         },
@@ -57,6 +41,11 @@ function T.get_servers()
                 },
                 dockerls = {},
                 pylsp = {},
+                prismals = {
+                        editor = {
+                                defaultFormatter = "Prisma.prisma",
+                        },
+                },
         }
 end
 

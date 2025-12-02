@@ -1,4 +1,4 @@
-local blocklist = {}
+local blocklist = { "dopamine-club", "enliv" }
 
 local is_blocklisted = function(opts)
         local function contains(str, substr)
