@@ -6,7 +6,7 @@ return {
                 ensure_installed = {
                         "bash",
                         "dockerfile",
-                        "go",
+                        -- "go",
                         "javascript",
                         "jsdoc",
                         "lua",

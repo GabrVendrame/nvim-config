@@ -52,11 +52,11 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Quickfix previous" })
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Location list next" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Location list previous" })
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-        {
-                desc = "Search and replace word under cursor",
-        }
-)
+-- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+--         {
+--                 desc = "Search and replace word under cursor",
+--         }
+-- )
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Make file executable", silent = true })
 
 -- INFO: only useful if proggraming in go
