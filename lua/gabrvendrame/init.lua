@@ -26,13 +26,13 @@ local function setup_lsp_highlight(client, bufnr)
         autocmd({ "CursorHold", "CursorHoldI" }, {
                 group = lsp_hl_group,
                 buffer = bufnr,
-                callback = vim.lsp.buf.document_highlight
+                callback = vim.lsp.buf.document_highlight,
         })
 
         autocmd({ "CursorMoved", "CursorMovedI" }, {
                 group = lsp_hl_group,
                 buffer = bufnr,
-                callback = vim.lsp.buf.clear_references
+                callback = vim.lsp.buf.clear_references,
         })
 end
 
@@ -41,7 +41,7 @@ autocmd("TextYankPost", {
         group = yank_group,
         callback = function()
                 vim.hl.on_yank()
-        end
+        end,
 })
 
 autocmd("LspAttach", {
@@ -53,7 +53,7 @@ autocmd("LspAttach", {
                 utils.set_keymaps(buf)
                 setup_lsp_highlight(client, buf)
                 utils.setup_inlay_hints(client, buf)
-        end
+        end,
 })
 
 autocmd("LspDetach", {
@@ -61,5 +61,5 @@ autocmd("LspDetach", {
         callback = function(event)
                 clear_autocmds({ group = "LspHighlight", buffer = event.buf })
                 vim.lsp.buf.clear_references()
-        end
+        end,
 })

@@ -11,10 +11,12 @@ end
 function U.set_keymaps(bufnr)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation", buffer = bufnr })
         vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, { desc = "Show diagnostics", buffer = bufnr })
-        vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = 1, float = true }) end,
-                { desc = "Next diagnostic", buffer = bufnr })
-        vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = -1, float = true }) end,
-                { desc = "Previous diagnostic", buffer = bufnr })
+        vim.keymap.set("n", "[d", function()
+                vim.diagnostic.jump({ count = 1, float = true })
+        end, { desc = "Next diagnostic", buffer = bufnr })
+        vim.keymap.set("n", "]d", function()
+                vim.diagnostic.jump({ count = -1, float = true })
+        end, { desc = "Previous diagnostic", buffer = bufnr })
         vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, { desc = "Code action", buffer = bufnr })
         vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, { desc = "Rename symbol", buffer = bufnr })
         vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = bufnr })
@@ -29,11 +31,9 @@ function U.setup_inlay_hints(client, bufnr)
         end
 
         vim.keymap.set("n", "<leader>h", function()
-                        local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
-                        vim.lsp.inlay_hint.enable(not is_enabled)
-                end,
-                { buffer = bufnr, desc = "Toggle Inlay Hints" }
-        )
+                local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
+                vim.lsp.inlay_hint.enable(not is_enabled)
+        end, { buffer = bufnr, desc = "Toggle Inlay Hints" })
 end
 
 function U.setup_diagnostics()
@@ -60,7 +60,7 @@ function U.setup_diagnostics()
                         format = function(diagnostic)
                                 return diagnostic.message
                         end,
-                }
+                },
         })
 end
 
