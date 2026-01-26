@@ -2,7 +2,7 @@ local gen_loader = require("mini.snippets").gen_loader
 
 return {
         {
-                "echasnovski/mini.snippets",
+                "nvim-mini/mini.snippets",
                 version = false,
                 opts = {
                         snippets = {
@@ -11,17 +11,17 @@ return {
                 }
         },
         {
-                "echasnovski/mini.move",
+                "nvim-mini/mini.move",
                 version = false,
                 opts = {}
         },
         {
-                "echasnovski/mini.surround",
+                "nvim-mini/mini.surround",
                 version = false,
                 opts = {}
         },
         {
-                "echasnovski/mini.indentscope",
+                "nvim-mini/mini.indentscope",
                 version = false,
                 opts = {
                         draw = {
