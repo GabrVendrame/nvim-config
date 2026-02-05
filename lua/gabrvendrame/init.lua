@@ -2,7 +2,7 @@ require("gabrvendrame.remap")
 require("gabrvendrame.set")
 require("gabrvendrame.lazy")
 
-vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("nightfox")
 
 local utils = require("gabrvendrame.utils")
 

@@ -6,19 +6,19 @@ return {
                 version = false,
                 opts = {
                         snippets = {
-                                gen_loader.from_lang()
-                        }
-                }
+                                gen_loader.from_lang(),
+                        },
+                },
         },
         {
                 "nvim-mini/mini.move",
                 version = false,
-                opts = {}
+                opts = {},
         },
         {
                 "nvim-mini/mini.surround",
                 version = false,
-                opts = {}
+                opts = {},
         },
         {
                 "nvim-mini/mini.indentscope",
@@ -28,8 +28,8 @@ return {
                                 delay = 0,
                                 animation = function()
                                         return 0
-                                end
-                        }
-                }
-        }
+                                end,
+                        },
+                },
+        },
 }
