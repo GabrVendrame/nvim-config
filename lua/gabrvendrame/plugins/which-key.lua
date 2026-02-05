@@ -35,6 +35,6 @@ return {
         delay = 0,
         icons = {
                 mappings = vim.g.have_nerd_font,
-                keys = default_keys, --vim.g.have_nerd_font and {} or
+                keys = vim.g.have_nerd_font and {} or default_keys,
         },
 }
