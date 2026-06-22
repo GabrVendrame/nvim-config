@@ -15,6 +15,7 @@ return {
                         "sql",
                         "typescript",
                         "vimdoc",
+                        "html",
                 },
                 auto_install = true,
                 highlight = {

@@ -1,4 +1,4 @@
-local blocklist = { "dopamine-club", "enliv" }
+local blocklist = { "dopamine-club", "Enliv", "enliv", "Enliv/scripts" }
 
 local is_blocklisted = function(opts)
         local function contains(str, substr)
@@ -19,7 +19,7 @@ return {
         build = ":Cord update",
         opts = {
                 idle = {
-                        icon = "https://media.tenor.com/GOEO_QhhtlYAAAAM/go-to-sleep-anime.gif"
+                        icon = "https://media.tenor.com/GOEO_QhhtlYAAAAM/go-to-sleep-anime.gif",
                 },
                 text = {
                         viewing = function(opts)
@@ -30,7 +30,7 @@ return {
                         end,
                         workspace = function(opts)
                                 return is_blocklisted(opts) and "Working" or ("Working on " .. opts.filename)
-                        end
+                        end,
                 },
-        }
+        },
 }
